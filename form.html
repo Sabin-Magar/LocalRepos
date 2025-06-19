@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function validate(){
+            const x= document.getElementById("form");
+            const uname = x.name.value;
+            const pass= x.password.value;
+            const country = x.country.value;
+            const gender = x.gender.value;
+
+            if(uname.length < 4){
+                alert("Invalid username");
+            }
+
+            var cond = /^[A-Za-z].*#$/;
+            var result = pass.match(cond);
+            if(result== null){
+                alert("Invalid password");
+            }
+
+            if(country== "" || country == "choose"){
+                alert("No selection done");
+            }
+
+            
+            if(!gender){
+                alert("Gender not selected");
+            }
+
+
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <form id="form" method="get" onsubmit="return validate()" action="index.php">
+            <label for="Namw">Name</label><br>
+            <input type="text" id="name" name="name"><br>
+            <label for="password">Password</label><br>
+            <input type="password" id="password" name="password"><br>
+
+            <label for="country">Country</label>
+            <select name="country" id="country">
+                <option value="choose">choose</option>
+                <option value="nepal">nepal</option>
+                <option value="china">china</option>
+            </select><br>
+
+            <label for="gender">Gender</label><br>
+            <input type="radio" name="gender" id="male" value="male">
+            <label for="male">Male</label><br>
+            <input type="radio" name="gender" id="female" value="female">
+            <label for="female">Female</label><br>
+            <br>
+            <input type="submit" id="submit">
+        </form>
+    </div>
+</body>
+</html>
